@@ -64,14 +64,14 @@ else:
     print(f"Vítej v textovém analyzátoru, {uzivatel_jmeno}!")
 
 print(oddelovac)
-vyber_textu = int(input("Vyber si číslo textu, které chceš analyzovat - |1|2|3| - : "))
+vyber_textu = input("Vyber si číslo textu, které chceš analyzovat - |1|2|3| - : ")
 print(oddelovac)
 
-if vyber_textu == 1:
+if vyber_textu == "1":
     vybrany_text = TEXTS[0]
-elif vyber_textu == 2:
+elif vyber_textu == "2":
     vybrany_text = TEXTS[1]
-elif vyber_textu == 3:
+elif vyber_textu == "3":
     vybrany_text = TEXTS[2]
 else:
     print("Špatně vybrané číslo textu! UKONČUJI...")
@@ -89,6 +89,8 @@ suma_cisel = 0
 graf = {}
 
 for slovo in vybrany_text.split():
+    if len(slovo.strip(".:;,")) == 0:
+        continue
     vycisteni_text.append(slovo.strip(".:;,").lower())
     pocet_slov = pocet_slov + 1
     if slovo.istitle() == True:
